@@ -21,7 +21,8 @@
 ## 3\. البنية الهيكلية للنموذج (Model Architectural Structure)
 
   * **الشكل 1: البنية الهندسية للنموذج الهجين hybird_v3_toptransfprm`**``)
-    \<img src="arabic_sign_deeplearning/asset/image/architecture.png" alt="Detailed architecture of the hybrid Spatio-Temporal Transformer model" style="max-width: 90%; display: block; margin: 0 auto;"\>
+    
+    <img src="arabic_sign_deeplearning\asset\image\architecture.png" alt="Detailed architecture of the hybrid Spatio-Temporal Transformer model" style="max-width: 90%; display: block; margin: 0 auto;"\>
       * **المدخلات:** تسلسلات زمنية من المعالم الحركية (Keypoint Coordinates) المُعيرة (Normalized) والمُستخلصة من الإشارة.
       * **المُحوّل الزماني (Temporal Transformer):** المكون الرئيسي الذي يستخدم **آليات الانتباه الذاتي (Self-Attention)** لالتقاط الاعتماديات طويلة المدى في حركة الإشارة عبر الزمن.
 
