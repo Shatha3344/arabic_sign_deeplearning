@@ -27,14 +27,8 @@ This dual-branch approach enables the model to capture both path-dependent seque
 
 ##  Watch The Platform in Action (Live Demo)
 
-![test_model](asset/image/test_sign.gif)
+<img src="asset/image/test_sign.gif" alt="test_model" width="300" />
 
-<div align="center">
-  <p><b>Live System Demonstration</b></p>
-  <p><i>(A video showcasing the real-time recognition platform)</i></p>
-  
-  <iframe src="asset/image/sign_test.mp4" width="80%" height="450" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-</div>
 
 ---
 
