@@ -34,7 +34,7 @@ This dual-branch approach enables the model to capture both path-dependent seque
   <p><i>(A video showcasing the real-time recognition platform)</i></p>
   
   <video width="80%" controls>
-    <source src="asset/image/sgin_test.mp4" type="video/mp4">
+    <source src="asset/image/test_sign.gif" type="video/gif">
     Your browser does not support the video tag.
   </video>
 </div>
