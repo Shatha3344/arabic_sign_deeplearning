@@ -23,7 +23,7 @@ Sign language recognition is a challenging spatio-temporal sequence processing t
 
 The primary components defining our model's structure and the methodology used for training are presented below:
 
-[**Figure 1: Model Architecture**](asset/image/architecture.png) |
+![**Figure 1: Model Architecture**](asset/image/architecture.png) |
 
   * **Model Architecture:** Figure 1 illustrates the hybrid `hybird_v3_toptransfprm` structure, which integrates feature extraction with **Temporal Transformer layers** for sequential analysis.
   * **Training Workflow:** Figure 2 displays the comprehensive procedural diagram, outlining the end-to-end training process from data preprocessing to final evaluation.
@@ -32,7 +32,7 @@ The primary components defining our model's structure and the methodology used f
 
 Raw video data is converted into normalized, sequential keypoint data suitable for the deep learning model:
 
-[**Figure 3: Keypoint Extraction Pipeline**](asset/image/pipe.png)
+![**Figure 3: Keypoint Extraction Pipeline**](asset/image/pipe.png)
 
   * **Description:** Figure 3 demonstrates the transformation process from video frames to structured **Keypoint Coordinates** using the **MediaPipe** library.
   * **Artifacts:** **`scaler.joblib`** is used for coordinate normalization, ensuring scale and position invariance.
@@ -45,19 +45,19 @@ Raw video data is converted into normalized, sequential keypoint data suitable f
 
 The model's performance and learning behavior are benchmarked using standard classification metrics:
 
-[**Figure 4: Training Curves**](asset/image/train.png) 
+![**Figure 4: Training Curves**](asset/image/train.png) 
 
   * **Training Curves:** The curves in Figure 4 show **Stable Convergence** between training and validation accuracy over epochs, confirming effective learning without significant overfitting.
-[**Figure 5: Performance Metrics**](asset/image/acc.png)
+![**Figure 5: Performance Metrics**](asset/image/acc.png)
   * **Performance Metrics:** Figure 5 summarizes the **Classification Accuracy** and other metrics obtained on the held-out test set, validating the model's effectiveness.
 
 ### 3.2. Validation and Deployment
 
 The project includes an interactive web interface for real-time testing and practical validation:
 
-[**Figure 6: Deployment Platform**](asset/image/platform.jpg) | 
+![**Figure 6: Deployment Platform**](asset/image/platform.jpg) | 
   * **Deployment Platform:** Figure 6 showcases the frontend web application (developed using HTML/CSS/SASS), demonstrating the system's readiness for real-time inference.
- [**Figure 7: Practical Validation Results**](asset/image/result.png)
+![**Figure 7: Practical Validation Results**](asset/image/result.png)
   * **Practical Validation:** Figure 7 displays a successful live prediction output, confirming the model's ability to generalize to unseen gestures.
 
 -----
