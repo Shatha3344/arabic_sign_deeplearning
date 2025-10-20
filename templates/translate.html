@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block title %}ArabicSign - الترجمة{% endblock %}
+
+{% block content %}
+<section class="translation-section">
+  <div class="translation-container">
+
+    <div class="video-preview-area">
+      <video id="video-preview" controls poster="{{ url_for('static', filename='images/video-poster.jpg') }}"></video>
+    </div>
+
+    <div class="translation-form-area">
+      <h2 class="title">ترجمة لغة الإشارة</h2>
+      <p class="description">
+        قم بتحميل الفيديو بلغة الإشارة ليتم تحليله وترجمته باستخدام الذكاء الاصطناعي المتقدم
+      </p>
+
+      <form id="upload-form" enctype="multipart/form-data" class="upload-form">
+        <div class="form-group">
+          <label class="custom-file-upload">
+            <input type="file" name="video" accept="video/*" id="video-input" />
+            <i class="fas fa-upload"></i> اختر ملف فيديو
+          </label>
+          <button type="submit" class="btn btn-gradient" id="translate-btn">
+            <span class="btn-text">ابدأ الترجمة</span>
+            <span class="loading-spinner" style="display:none;">
+              <i class="fas fa-spinner fa-spin"></i>
+            </span>
+          </button>
+        </div>
+      </form>
+
+      <div class="result-box">
+        <h3>النتيجة:</h3>
+        <p id="result">سيظهر نص الترجمة هنا بعد الانتهاء من المعالجة</p>
+        <p id="confidence" style="color: #777; font-size: 0.9em;"></p> <!-- ✅ تم إضافته -->
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const videoInput = document.getElementById("video-input");
+  const videoPreview = document.getElementById("video-preview");
+  const form = document.getElementById("upload-form");
+  const resultText = document.getElementById("result");
+  const confidenceText = document.getElementById("confidence");
+  const translateBtn = document.getElementById("translate-btn");
+  const btnText = document.querySelector(".btn-text");
+  const loadingSpinner = document.querySelector(".loading-spinner");
+
+  videoInput.addEventListener("change", function () {
+    const file = this.files[0];
+    if (file) {
+      if (file.size > 50 * 1024 * 1024) {
+        alert("حجم الفيديو يجب أن يكون أقل من 50MB");
+        this.value = "";
+        return;
+      }
+      const url = URL.createObjectURL(file);
+      videoPreview.src = url;
+      videoPreview.load();
+    }
+  });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const file = videoInput.files[0];
+    if (!file) {
+      resultText.textContent = "يرجى اختيار ملف فيديو أولاً";
+      resultText.classList.add("error");
+      return;
+    }
+
+    resultText.textContent = "جاري معالجة الفيديو...";
+    confidenceText.textContent = "";
+    resultText.classList.add("loading");
+    btnText.textContent = "جارٍ الترجمة...";
+    loadingSpinner.style.display = "inline-block";
+    translateBtn.disabled = true;
+
+    const formData = new FormData();
+    formData.append("video", file);
+
+    fetch("/predict", {
+      method: "POST",
+      body: formData,
+    })
+      .then(async (res) => {
+        let data;
+        try {
+          data = await res.json();
+        } catch (e) {
+          throw new Error("⚠️ الرد من الخادم غير صالح (ربما HTML بدل JSON)");
+        }
+
+        if (!res.ok) {
+          throw new Error(data.error || "⚠️ حدث خطأ في المعالجة");
+        }
+
+        if (!data.prediction) {
+          throw new Error("⚠️ لم يتم العثور على نتيجة الترجمة");
+        }
+
+        // ✅ عرض النتيجة
+        resultText.textContent = `الترجمة: ${data.prediction}`;
+        confidenceText.textContent = `نسبة الثقة: ${Math.round(data.confidence * 100)}%`;
+        resultText.classList.remove("loading", "error");
+      })
+      .catch((err) => {
+        resultText.textContent = err.message || "حدث خطأ أثناء الترجمة";
+        resultText.classList.remove("loading");
+        resultText.classList.add("error");
+        confidenceText.textContent = "";
+      })
+      .finally(() => {
+        btnText.textContent = "ابدأ الترجمة";
+        loadingSpinner.style.display = "none";
+        translateBtn.disabled = false;
+      });
+  });
+</script>
+{% endblock %}

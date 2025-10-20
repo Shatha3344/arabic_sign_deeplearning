@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArabicSign - إنشاء حساب</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+
+    <main class="section-light-gradient py-5">
+      <div class="container auth-container">
+        <div class="card shadow-xl rounded-xl p-5 bg-white">
+          <h2 class="gradient-text text-center mb-4">إنشاء حساب جديد</h2>
+          <form method="POST" action="/register" class="d-flex flex-column gap-3">
+            <input type="text" name="username" placeholder="اسم المستخدم" class="input-field rounded-xl" required>
+            <input type="email" name="email" placeholder="البريد الإلكتروني" class="input-field rounded-xl" required>
+            <input type="password" name="password" placeholder="كلمة المرور" class="input-field rounded-xl" required>
+            <input type="password" name="confirm_password" placeholder="تأكيد كلمة المرور" class="input-field rounded-xl" required>
+            <button type="submit" class="btn btn-primary w-100 rounded-xl">تسجيل</button>
+          </form>
+          <div class="text-center mt-3">
+            <span class="text-muted">لديك حساب بالفعل؟</span>
+            <a href="/login" class="nav-link">تسجيل الدخول</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    {% include 'footer.html' %}
+  </body>
+</html>
