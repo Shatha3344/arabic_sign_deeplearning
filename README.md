@@ -1,8 +1,3 @@
-بالتأكيد. أتفهم أنك تريد التأكد من أن الصور تظهر بشكل صحيح ومرتب في ملف `README.md` باستخدام وسم `<img>` مع التنسيق المطلوب.
-
-**ملاحظة هامة:** بناءً على هيكلية الملفات التي قدمتها سابقاً، فإن ملفات الصور (مثل `train.png`, `alogthims.jpg`, إلخ) تقع مباشرة في المجلد الرئيسي (Root) بجوار ملف `README.md`. لذلك، يجب أن يكون المسار داخل وسم `src` هو **اسم الملف فقط** لكي يظهر بشكل صحيح على GitHub. استخدام مسار مثل `arabic_sign_deeplearning/asset/image/` لن يعمل إلا إذا قمت بإنشاء هذه المجلدات ونقل الصور إليها فعلياً.
-
-سأقوم بتعديل ملف `README.md` بالكامل باستخدام صيغة HTML المطلوبة، مع استخدام اسم الملف مباشرة كـ `src` لضمان ظهور الصور.
 
 -----
 
@@ -25,8 +20,8 @@
 
 ## 3\. البنية الهيكلية للنموذج (Model Architectural Structure)
 
-  * **الشكل 1: البنية الهندسية للنموذج الهجين `hybird_v3_toptransfprm`** (`architecture.png`)
-    \<img src="architecture.png" alt="Detailed architecture of the hybrid Spatio-Temporal Transformer model" style="max-width: 90%; display: block; margin: 0 auto;"\>
+  * **الشكل 1: البنية الهندسية للنموذج الهجين hybird_v3_toptransfprm`**``)
+    \<img src="arabic_sign_deeplearning/asset/image/architecture.png" alt="Detailed architecture of the hybrid Spatio-Temporal Transformer model" style="max-width: 90%; display: block; margin: 0 auto;"\>
       * **المدخلات:** تسلسلات زمنية من المعالم الحركية (Keypoint Coordinates) المُعيرة (Normalized) والمُستخلصة من الإشارة.
       * **المُحوّل الزماني (Temporal Transformer):** المكون الرئيسي الذي يستخدم **آليات الانتباه الذاتي (Self-Attention)** لالتقاط الاعتماديات طويلة المدى في حركة الإشارة عبر الزمن.
 
