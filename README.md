@@ -23,7 +23,8 @@ Sign language recognition is a challenging spatio-temporal sequence processing t
 
 The primary components defining our model's structure and the methodology used for training are presented below:
 
-[**Figure 1: Model Architecture**](asset/image/architecture.png) | [**Figure 2: Training Workflow**](asset/image/alogthims.jpg)
+[**Figure 1: Model Architecture**](asset/image/architecture.png) |
+[**Figure 2: Training Workflow**](asset/image/alogthims.png)
 
   * **Model Architecture:** Figure 1 illustrates the hybrid `hybird_v3_toptransfprm` structure, which integrates feature extraction with **Temporal Transformer layers** for sequential analysis.
   * **Training Workflow:** Figure 2 displays the comprehensive procedural diagram, outlining the end-to-end training process from data preprocessing to final evaluation.
