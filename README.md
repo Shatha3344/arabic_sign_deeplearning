@@ -29,6 +29,17 @@ This dual-branch approach enables the model to capture both path-dependent seque
 
 ![test_model](asset/image/test_sign.gif)
 
+<div align="center">
+  <p><b>Live System Demonstration</b></p>
+  <p><i>(A video showcasing the real-time recognition platform)</i></p>
+  
+  <video width="80%" controls>
+    <source src="asset/image/sgin_test.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+
 ---
 
 ## 2. Technical Methodology & Architecture
