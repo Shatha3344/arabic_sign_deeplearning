@@ -28,7 +28,6 @@ This dual-branch approach enables the model to capture both path-dependent seque
 ##  Watch The Platform in Action (Live Demo)
 
 ![test_model](asset/image/test_sign.gif)
-![test_model](asset/image/sign_test.mp4)
 
 ---
 
