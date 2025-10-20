@@ -127,7 +127,7 @@ The trained model is deployed in an interactive web interface (HTML/CSS/SASS) fo
 
 | Web Application Interface | Live Prediction Example |
 | :---: | :---: |
-| ![**Figure 5: Deployment Platform**](asset/image/platform.jpg) | ![**Figure 6: Practical Validation Results**](asset/image/result.png) |
+| ![**Figure 5: Deployment Platform**](asset/image/platform.png) | ![**Figure 6: Practical Validation Results**](asset/image/result.png) |
 | *<p align="center"><b>Figure 5:</b> The application's user interface.</p>* | *<p align="center"><b>Figure 6:</b> A successful real-time prediction, confirming the model's ability to generalize to live, unseen data.</p>* |
 
 ---
