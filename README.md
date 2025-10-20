@@ -33,12 +33,8 @@ This dual-branch approach enables the model to capture both path-dependent seque
   <p><b>Live System Demonstration</b></p>
   <p><i>(A video showcasing the real-time recognition platform)</i></p>
   
-  <video width="80%" controls>
-    <source src="asset/image/test_sign.gif" type="video/gif">
-    Your browser does not support the video tag.
-  </video>
+  <iframe src="asset/image/sign_test.mp4" width="80%" height="450" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 </div>
-
 
 ---
 
