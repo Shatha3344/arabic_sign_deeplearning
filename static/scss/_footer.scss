@@ -1,0 +1,31 @@
+// _footer.scss
+@use 'variables' as *;
+@use 'sass:color';
+
+
+.site-footer {
+
+  background-color: $primary-color;
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: 0.95rem;
+  color: $white;
+  font-family: $font-family;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: $secondary-color;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: color.adjust($secondary-color, $lightness: -10%);
+      
+    }
+  }
+}

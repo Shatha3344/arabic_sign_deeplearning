@@ -1,0 +1,73 @@
+@use 'variables' as *;
+@use 'button';
+
+.auth-container {
+  background: $white;
+  border-radius: $card-radius;
+  padding: 3rem;
+  box-shadow: $box-shadow-xl;
+  max-width: 600px;
+  margin: 100px auto;
+  font-family: $font-family;
+  text-align: center;
+
+  h2 {
+    color: $primary-color;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    input {
+      padding: 1rem;
+      border-radius: $border-radius;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      width: 100%;
+      transition: $transition;
+
+      &:focus {
+        border-color: $primary-color;
+        box-shadow: 0 0 6px rgba(115, 154, 158, 0.3);
+        outline: none;
+      }
+    }
+
+    .btn-submit {
+      background: $gradient;
+      color: $white;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: $border-radius;
+      cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        opacity: 0.95;
+        transform: scale(1.03);
+      }
+    }
+  }
+
+  p {
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+
+    a {
+      color: $primary-color;
+      font-weight: bold;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

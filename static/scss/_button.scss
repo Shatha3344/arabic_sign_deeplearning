@@ -1,0 +1,60 @@
+@use 'variables' as *;
+@use 'sass:color';
+
+
+.btn {
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: $border-radius;
+  font-family: $font-family;
+  cursor: pointer;
+  text-align: center;
+  transition: $transition;
+  border: none;
+  text-decoration: none;
+}
+
+// زر أساسي بلون متدرج
+.btn-primary {
+  background: $gradient;
+  color: $white;
+
+  &:hover {
+    transform: scale(1.05);
+    opacity: 0.95;
+  }
+}
+
+// زر بحواف شفافة
+.btn-outline {
+  background: transparent;
+  color: $primary-color;
+  border: 2px solid $primary-color;
+
+  &:hover {
+    background-color: $primary-color;
+    color: $white;
+  }
+}
+
+// زر كبير للترجمة
+.btn-translate-now {
+  background: $gradient;
+  color: $white;
+  font-weight: bold;
+  padding: 0.9rem 2rem;
+  border-radius: 2rem;
+  transition: $transition;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background: linear-gradient(
+      135deg,
+      color.adjust($primary-color, $lightness: 10%),
+      color.adjust($secondary-color, $lightness: -5%)
+    );
+    transform: translateY(-2px);
+  }
+}
