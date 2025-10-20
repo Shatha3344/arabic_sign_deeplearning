@@ -1,20 +1,29 @@
 
+تم استخدام تنسيق `style="max-width: 90%; display: block; margin: 0 auto;"` لضمان توسيط الصورة وتقليص حجمها لتناسب شاشة العرض.
 
-#  Arabic Sign Deep Learning: Hybrid Spatio-Temporal Recognition Model
+-----
 
-**Shatha3344/arabic\_sign\_deeplearning**
+# 📖 Arabic Sign Deep Learning: Hybrid Spatio-Temporal Recognition Model
+
+## نظام التعرف على لغة الإشارة العربية: نموذج مكاني-زماني هجين
+
+**المؤلف:** Shatha3344
+**المستودع:** `Shatha3344/arabic_sign_deeplearning`
 
 مشروع بحثي وتطبيقي يهدف إلى التعرف على لغة الإشارة العربية (ArSL) باستخدام نموذج هجين متقدم يعتمد على شبكات المُحوّلات (Transformers) والمعالم الحركية المستخلصة.
 
+-----
 
-##  نظرة عامة على المشروع (Project Overview)
+## 🚀 نظرة عامة على المشروع (Project Overview)
 
 تم تطوير نظام التعرف على الإشارة بناءً على بنية **مكانية-زمانية هجينة (Hybrid Spatio-Temporal Architecture)**. يعالج هذا النموذج التسلسلات الزمنية لنقاط المفتاح (Keypoints) المستخلصة عبر MediaPipe، مما يضمن دقة عالية في تصنيف الإشارات الديناميكية.
 
+-----
 
 ## 3\. البنية الهيكلية للنموذج (Model Architectural Structure)
 
-  * **الشكل (`architecture.png`):** يوضح البنية الهندسية للنموذج الهجين `hybird_v3_toptransfprm`.
+  * **الشكل 1: البنية الهندسية للنموذج الهجين `hybird_v3_toptransfprm`** (`architecture.png`)
+    \<img src="architecture.png" alt="Detailed architecture of the hybrid Spatio-Temporal Transformer model" style="max-width: 90%; display: block; margin: 0 auto;"\>
       * **المدخلات:** تسلسلات زمنية من المعالم الحركية (Keypoint Coordinates) المُعيرة (Normalized) والمُستخلصة من الإشارة.
       * **المُحوّل الزماني (Temporal Transformer):** المكون الرئيسي الذي يستخدم **آليات الانتباه الذاتي (Self-Attention)** لالتقاط الاعتماديات طويلة المدى في حركة الإشارة عبر الزمن.
 
@@ -22,11 +31,51 @@
 
 ## 4\. منهجية التدريب والتحسين (Training Methodology)
 
-  * **الشكل (`asset/image/alogthims.jpg`):** يعرض مخطط سير عمل **(Workflow Diagram)** لعملية التدريب والتقييم.
-      * تشمل المنهجية: استخلاص المعالم (`asset/image/pipe.png`) $\rightarrow$ تسوية البيانات (`scaler.joblib`) $\rightarrow$ تدريب النموذج الهجين $\rightarrow$ التقييم المستمر (`asset/image/train.png`).
+  * **الشكل 2: مخطط سير عمل التدريب الشامل.** (`alogthims.jpg`)
+    \<img src="alogthims.jpg" alt="Training methodology and workflow diagram showing data pipeline" style="max-width: 90%; display: block; margin: 0 auto;"\>
+
+      * تشمل المنهجية: استخلاص المعالم (`pipe.png`) $\rightarrow$ تسوية البيانات (`scaler.joblib`) $\rightarrow$ تدريب النموذج الهجين $\rightarrow$ التقييم المستمر (`train.png`).
+
+  * **مرحلة استخلاص المعالم (Keypoint Extraction):**
+
+      * توضح الصورة التالية المسار الذي يتم فيه تحويل الصورة المرئية إلى بيانات هيكلية باستخدام MediaPipe. (`pipe.png`)
+
+    \<img src="pipe.png" alt="MediaPipe keypoint extraction pipeline for Arabic Sign Language" style="max-width: 90%; display: block; margin: 0 auto;"\>
+
   * **ملحقات التدريب:**
+
       * **النموذج المُدرّب:** `arabic_sign_deeplearning/models/hybird_v3_toptransfprm/hybrid_model_final_108.keras`
       * **ترميز الفئات:** `arabic_sign_deeplearning/models/hybird_v3_toptransfprm/label_encoder.joblib`
+
+-----
+
+## 5\. النتائج والتحليل (Results and Analysis)
+
+يتم عرض النتائج الرئيسية التي تثبت كفاءة وفعالية النموذج:
+
+  * **منحنيات التدريب (Training Curves):** (`train.png`)
+
+      * تُظهر المنحنيات سلوك تقارب مستقر بين دقة التدريب ودقة التحقق، مما يؤكد على أن النموذج يتعلم بفعالية ويتمتع بقدرة جيدة على التعميم.
+
+    \<img src="train.png" alt="Training loss and accuracy curves over epochs" style="max-width: 90%; display: block; margin: 0 auto;"\>
+
+  * **مقاييس الأداء (Performance Metrics):** (`acc.png`)
+
+      * ملخص لأفضل دقة تم الوصول إليها على مجموعة الاختبار (Test Set).
+
+    \<img src="acc.png" alt="Classification accuracy metrics and confusion matrix" style="max-width: 90%; display: block; margin: 0 auto;"\>
+
+  * **نتائج التحقق العملي (Practical Validation):** (`result.png`)
+
+      * لقطة تعرض نتائج تنبؤات النموذج الناجحة على بيانات اختبار حقيقية.
+
+    \<img src="result.png" alt="Live test results and model predictions on test data" style="max-width: 90%; display: block; margin: 0 auto;"\>
+
+  * **منصة التنفيذ (Deployment Platform):** (`screen_platform.jpg`)
+
+      * تُظهر واجهة المستخدم التفاعلية التي تتيح اختبار النموذج في الوقت الفعلي.
+
+    \<img src="screen\_platform.jpg" alt="Screenshot of the web application user interface" style="max-width: 90%; display: block; margin: 0 auto;"\>
 
 -----
 
@@ -83,39 +132,22 @@ conda activate arsign
 pip install tensorflow keras scikit-learn joblib mediapipe 
 ```
 
-*(ملاحظة: قد تحتاج إلى حزم إضافية بناءً على ملف `arabic-words-sign-language-detection (2).ipynb`)*
-
 ### 3\. تحميل النموذج والملحقات
 
-تأكد من وجود الملفات التالية داخل المسار الصحيح:
-
-  * `arabic_sign_deeplearning/models/hybird_v3_toptransfprm/hybrid_model_final_108.keras`
-  * `arabic_sign_deeplearning/models/hybird_v3_toptransfprm/label_encoder.joblib`
-  * `arabic_sign_deeplearning/models/hybird_v3_toptransfprm/scaler.joblib`
+تأكد من وجود جميع الملفات الخاصة بالنموذج والمُعالج (المذكورة في قسم هيكلة الملفات) في المسارات الصحيحة.
 
 ### 4\. تشغيل التطبيق (Run the Application)
 
 #### أ. تشغيل الواجهة الأمامية (Web Interface)
 
-إذا كان التطبيق يعتمد على نموذج `JavaScript/TensorFlow.js` يعمل في المتصفح:
-
 1.  انتقل إلى المجلد: `cd arabic_sign_deeplearning/web`
-2.  افتح ملف `index.html` مباشرة في متصفح يدعم WebCam (Chrome/Firefox).
+2.  افتح ملف **`index.html`** مباشرة في متصفح يدعم WebCam (Chrome/Firefox).
 
 #### ب. تشغيل الكود المحلي (Local Execution)
 
-إذا كنت تستخدم Python (مثل Flask/Django) لتقديم النموذج:
-
-1.  **لتشغيل التدريب/التحليل:** افتح الملف `notebooks/arabic-words-sign-language-detection (2).ipynb` في Jupyter Notebook أو VS Code.
-2.  **لتشغيل الخدمة (Service):** قم بتنفيذ ملف Python الرئيسي الذي يقوم بتحميل النموذج وربطه بالكاميرا (يفترض وجود ملف مثل `app.py`):
+1.  **لتشغيل التدريب/التحليل:** افتح الملف **`notebooks/arabic-words-sign-language-detection (2).ipynb`** في Jupyter Notebook أو VS Code.
+2.  **لتشغيل الخدمة (Service):** قم بتنفيذ ملف Python الرئيسي الذي يقوم بتحميل النموذج وربطه بالكاميرا (على افتراض وجود ملف تشغيل أساسي):
     ```bash
     python arabic_sign_deeplearning/main_app.py 
     ```
     (استبدل `main_app.py` بالاسم الفعلي لملف تشغيل الخدمة لديك).
-
------
-
-## 📊 النتائج والتحليل (Results and Analysis)
-
-  * **الدقة (`acc.png`)** و **منحنيات التدريب (`train.png`)** تؤكد فعالية المنهجية.
-  * **منصة التطبيق (`screen_platform.jpg`)** تُظهر واجهة المستخدم التفاعلية.
