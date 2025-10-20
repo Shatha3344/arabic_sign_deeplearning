@@ -29,10 +29,7 @@ This dual-branch approach enables the model to capture both path-dependent seque
 
 *(Insert your demo video or GIF here. This is a placeholder.)*
 
-<div align="center">
-  <p><b>Live System Demonstration</b></p>
-  <p><i>(A video or GIF showcasing the real-time recognition platform)</i></p>
-</div>
+![test_model](images/test_sign.gif)
 
 ---
 
